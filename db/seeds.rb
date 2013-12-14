@@ -1,7 +1,22 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require "dbc-ruby"
+DBC::token = "abf152a100244d8a1c9765282ebd9b0a"
+
+DBC::User.all.each do |user|
+  u= User.create(
+    :name => user.name,
+    :email => user.email,
+    :cohort_id => user.cohort_id,
+    :hometown => user.profile["hometown"],
+    :linked_in_url => user.profile["linked_in"],
+    :facebook_url => user.profile["facebook"],
+    :twitter_url => user.profile["twitter"],
+    :github_url => user.profile["github"],
+    :blog => user.profile["blog"],
+    :quora => user.profile["quora"],
+    :hacker_news_url => user.profile["hacker_news"]
+    # :role => user.roles
+  )
+  p u
+end
+
+p "done bitches"
