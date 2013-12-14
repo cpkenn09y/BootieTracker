@@ -3,9 +3,14 @@ class User < ActiveRecord::Base
 
   belongs_to :cohort
 
+  geocoded_by :current_location
+  before_save :geocode, :if => :current_location_changed?
+
+
   def self.from_sf
     joins(:cohort).merge(Cohort.where(:location => "San Francisco"))
   end
+
 
   def self.from_chicago
     joins(:cohort).merge(Cohort.where(:location => "Chicago"))
