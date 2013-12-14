@@ -60,7 +60,6 @@ function initialize() {
   // Add markers to map
     $.getJSON("/maps/index", function(json) {
         all_locations = json
-        debugger
 
     for(var i = 0, num = all_locations.length; i < num; i++) { // loop through locations
       geocoder.geocode(
