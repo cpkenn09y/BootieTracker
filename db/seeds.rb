@@ -58,3 +58,9 @@ DBC::User.all.each do |user|
   # end
 
 end
+
+DBC::Cohort.all.each do |cohort|
+  c = Cohort.create(c_id: cohort.id, cohort_name: cohort.name,  location: cohort.location)
+  p cohort.name
+  p c
+end
