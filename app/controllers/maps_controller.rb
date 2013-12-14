@@ -17,6 +17,7 @@ class MapsController < ApplicationController
     end
   end
 
+private
   def create_user_data_json(users)
     users.each do |user|
       gravatar_url = Gravatar.new(user.email).image_url
