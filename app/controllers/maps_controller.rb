@@ -27,14 +27,8 @@ class MapsController < ApplicationController
         longitude: user.longitude}}
     end
 
-# =======
-#     @users = User.all
-#     @all_locations = []
-#     @users.each {|user| @all_locations << user.current_location }
-#     puts @all_locations
-# >>>>>>> Stashed changes
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render :json => @user_data}
     end
   end
