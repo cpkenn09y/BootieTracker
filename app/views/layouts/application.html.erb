@@ -61,41 +61,18 @@ function initialize() {
     $.getJSON("/maps/index", function(json) {
         all_locations = json
 
-    for(var i = 0, num = all_locations.length; i < num; i++) { // loop through locations
-      geocoder.geocode(
-        {
-          address: all_locations[i]
-        },
-        function(results, status) {
-          if (status != google.maps.GeocoderStatus.OK) {
-            alert("Geocode was not successful for the following reason: " + status);
-            return false;
-          }
-          for (var i = 0, num = results.length; i < num; i++) { // loop through results
-            var marker = new google.maps.Marker({
-              position: results[i].geometry.location,
-              map: map,
-            });
-          }
-        }
-      ); // end geocode request
+    for(var i = 0, num = all_locations.length; i < num; i++) {
+      var lat = all_locations[i].user_name.latitude
+      var lon = all_locations[i].user_name.longitude
+      var name = all_locations[i].user_name.name
+      var user = new google.maps.LatLng(lat, lon);
+      var marker = new google.maps.Marker({
+        position: user,
+        title: name
+      })
+      marker.setMap(map);
     }
   });
-  var dbcSF = new google.maps.LatLng(37.79221, -122.406141);
-  var dbcChicago = new google.maps.LatLng(41.8899109, -87.6376566);
-
-  var marker1 = new google.maps.Marker({
-    position: dbcSF,
-    title:"DBC San Francisco"
-  });
-    marker1.setMap(map);
-
- var marker2 = new google.maps.Marker({
-    position: dbcChicago,
-    title:"DBC Chicago"
-  });
-
-  marker2.setMap(map);
 }
 
 function handleNoGeolocation(errorFlag) {
