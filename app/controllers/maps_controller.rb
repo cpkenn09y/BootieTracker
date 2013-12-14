@@ -2,6 +2,10 @@ class MapsController < ApplicationController
   respond_to :json, :html
 
   def index
+    if session[:user_id]
+      p "there is a USER!"
+      @user= User.find(session[:user_id])
+    end
     users = User.all
     p "????"
     p users.count
