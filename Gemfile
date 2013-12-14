@@ -6,7 +6,9 @@ gem 'rails', '3.2.14'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-
+gem 'sqlite3'
+gem 'faker'
+gem 'geocoder'
 
 # Gems used only for assets and not required
 # in production environments by default.
