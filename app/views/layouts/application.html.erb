@@ -42,7 +42,7 @@ function initialize() {
       var infowindow = new google.maps.InfoWindow({
         map: map,
         position: pos,
-        content: 'Location found using HTML5.'
+        content: 'Your Location'
       });
 
       map.setCenter(pos);
@@ -53,6 +53,22 @@ function initialize() {
     // Browser doesn't support Geolocation
     handleNoGeolocation(false);
   }
+
+  var dbcSF = new google.maps.LatLng(37.79221, -122.406141);
+  var dbcChicago = new google.maps.LatLng(41.8899109, -87.6376566);
+
+  var marker1 = new google.maps.Marker({
+    position: dbcSF,
+    title:"DBC San Francisco"
+  });
+    marker1.setMap(map);
+
+ var marker2 = new google.maps.Marker({
+    position: dbcChicago,
+    title:"DBC Chicago"
+  });
+
+  marker2.setMap(map);
 }
 
 function handleNoGeolocation(errorFlag) {
