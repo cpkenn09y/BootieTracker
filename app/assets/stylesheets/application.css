@@ -42,6 +42,10 @@ padding:0 100px 0 100px;
   color: white;
 }
 
+#radio-buttons {
+  color:white;
+}
+
 body{
   font-family: 'Voces', cursive;
 }
