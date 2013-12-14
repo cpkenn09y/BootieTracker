@@ -11,8 +11,11 @@ class MapsController < ApplicationController
     p users.count
     @user_data = []
     users.each do |user|
+      gravatar_url = Gravatar.new(user.email).image_url
+      p gravatar_url
       @user_data << { :user => {
         name: user.name,
+        image_url: gravatar_url,
         email: user.email,
         cohort_name: user.cohort,
         linked_in: user.linkedin_url,
@@ -24,7 +27,8 @@ class MapsController < ApplicationController
         headline: user.headline,
         current_location: user.current_location,
         latitude: user.latitude,
-        longitude: user.longitude}}
+        longitude: user.longitude,
+        }}
     end
 
     respond_to do |format|

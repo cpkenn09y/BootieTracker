@@ -52,16 +52,15 @@ function setPointsOntoMap(bootsDataForMap) {
 
 function attachListenerOntoMarker(bootData, marker) {
   google.maps.event.addListener(marker, "mouseover", function(event) {
-    console.log(bootData)
-    console.log(marker)
-    // debugger
-
+    // console.log(bootData)
+    // console.log(marker)
     createInfoWindowUponHover(bootData, marker)
   })
 }
 
 function createInfoWindowUponHover(bootData, marker) {
   var contentString = '<div class="content-box">'+
+    '<img src='+bootData.user.image_url+'>'+
     '<p>'+bootData.user.name+'</p>'+
     '<a href=mailto:'+bootData.user.email+'><i class="fa fa-envelope-o"></i>'+bootData.user.email+'</a>'+
     '<p><i class="fa fa-linux"></i>'+bootData.user.cohort_name+'</p>'+
