@@ -11,3 +11,23 @@
  *= require_self
  *= require_tree .
  */
+
+.navbar {
+margin: 0 0 0 0;
+background-color: rgba(255,255,255,0.2);
+z-index: 2;
+/*opacity: 0.2*/
+}
+
+#map-canvas {
+  margin-top: -50px !important;
+  /*z-index: -1;*/
+  width:100%;
+  overflow: visible !important;
+}
+
+body{
+  font-family: 'Voces', cursive;
+}
+
+
