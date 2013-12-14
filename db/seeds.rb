@@ -13,7 +13,6 @@ client = LinkedIn::Client.new(ENV["CONSUMER_KEY"], ENV["CONSUMER_SECRET"])
 client.authorize_from_access(ENV["ACCESS_KEY"], ENV["ACCESS_TOKEN"])
 
 DBC::User.all.each do |user|
-  p"hi"
   # case user.profile[:linked_in]
   # when ""
   #   user.profile[:linked_in] == nil
@@ -58,3 +57,5 @@ DBC::User.all.each do |user|
   # end
 
 end
+
+p "done"
