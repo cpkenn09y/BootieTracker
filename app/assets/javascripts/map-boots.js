@@ -35,18 +35,28 @@ function grabBootsDataForMap() {
   })
 }
 
-function setPointsOntoMap(all_locations) {
-  for(var i = 0, num = all_locations.length; i < num; i++) {
-    var lat = all_locations[i].user_name.latitude
-    var lon = all_locations[i].user_name.longitude
-    var name = all_locations[i].user_name.name
+function setPointsOntoMap(bootsDataForMap) {
+  for(var i = 0, num = bootsDataForMap.length; i < num; i++) {
+    var lat = bootsDataForMap[i].user_name.latitude
+    var lon = bootsDataForMap[i].user_name.longitude
+    var name = bootsDataForMap[i].user_name.name
     var user = new google.maps.LatLng(lat, lon);
     var marker = new google.maps.Marker({
       position: user,
       title: name
     })
     marker.setMap(map);
+    attachListenerOntoMarker(bootsDataForMap[i], marker)
   }
+}
+
+function attachListenerOntoMarker(bootData, marker) {
+  google.maps.event.addListener(marker, "mouseover", function(event) {
+    debugger
+    console.log(bootData)
+    console.log(marker)
+    // debugger
+  })
 }
 
 function handleNoGeolocation(errorFlag) {
@@ -68,7 +78,7 @@ function handleNoGeolocation(errorFlag) {
 function initialize() {
   createMap()
   centersMapOnYourLocation()
-  all_locations = grabBootsDataForMap()
+  grabBootsDataForMap()
 }
 
 $(document).ready(initialize)
