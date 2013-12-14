@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   before_save :update_location
 
+  belongs_to :cohort
 
   def update_location
 
