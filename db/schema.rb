@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(:version => 20131214053238) do
     t.string   "email"
     t.integer  "cohort_id"
     t.string   "hometown"
-    t.string   "linked_in_url"
+    t.text     "linked_in_url"
     t.string   "facebook_url"
     t.string   "twitter_url"
     t.string   "github_url"
@@ -26,8 +26,11 @@ ActiveRecord::Schema.define(:version => 20131214053238) do
     t.string   "quora"
     t.string   "hacker_news_url"
     t.string   "role"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.string   "location_name"
+    t.string   "headline"
+    t.string   "current_location"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end
