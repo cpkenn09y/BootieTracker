@@ -31,11 +31,11 @@ function centersMapOnYourLocation() {
 
 function grabBootsDataForMap() {
   $.getJSON("/maps/index", function(bootsDataForMap) {
-    setPointsOntoMap(bootsDataForMap)
+    setPointsOntoMapAndAttachListeners(bootsDataForMap)
   })
 }
 
-function setPointsOntoMap(bootsDataForMap) {
+function setPointsOntoMapAndAttachListeners(bootsDataForMap) {
   for(var i = 0, num = bootsDataForMap.length; i < num; i++) {
     var lat = bootsDataForMap[i].user.latitude
     var lon = bootsDataForMap[i].user.longitude
@@ -48,11 +48,19 @@ function setPointsOntoMap(bootsDataForMap) {
     marker.setMap(map);
     attachListenerOntoMarker(bootsDataForMap[i], marker)
   }
+  attachListersOntoRadioButtons()
 }
 
 function attachListenerOntoMarker(bootData, marker) {
   google.maps.event.addListener(marker, "mouseover", function(event) {
     createInfoWindowUponHover(bootData, marker)
+  })
+}
+
+function attachListersOntoRadioButtons() {
+  $('input:radio').on("change", function(event){
+    console.log(event)
+    debugger
   })
 }
 
@@ -62,6 +70,8 @@ function createInfoWindowUponHover(bootData, marker) {
     '<p>'+bootData.user.name+'</p>'+
     '<a href=mailto:'+bootData.user.email+'><i class="fa fa-envelope-o"></i>'+bootData.user.email+'</a>'+
     '<p><i class="fa fa-linux"></i>'+bootData.user.cohort_name+'</p>'+
+    '<p>'+bootData.user.current_location+'</p>'+
+    // '<p>'+bootData.user.git_location+'</p>'+
     '<a href='+bootData.user.linked_in+'target="_blank"><i class="fa fa-linkedin-square"></i>&nbsp</a>'+
     '<a href='+bootData.user.github+'target="_blank"><i class="fa fa-github-square"></i>&nbsp</a>'+
     '<a href='+bootData.user.facebook+'target="_blank"><i class="fa fa-facebook-square"></i>&nbsp</a>'+
