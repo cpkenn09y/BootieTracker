@@ -5,7 +5,7 @@ class MapsController < ApplicationController
     users = User.all
     @user_data = []
     users.each do |user|
-      @user_data << { :user_name => {
+      @user_data << { :user => {
         name: user.name,
         email: user.email,
         cohort_name: user.cohort,
