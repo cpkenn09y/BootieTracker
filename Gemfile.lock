@@ -28,6 +28,7 @@ GEM
     activesupport (3.2.14)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
+    addressable (2.3.5)
     arel (3.0.3)
     builder (3.0.4)
     coffee-rails (3.2.2)
@@ -46,6 +47,8 @@ GEM
     execjs (2.0.2)
     faker (1.2.0)
       i18n (~> 0.5)
+    faraday (0.8.8)
+      multipart-post (~> 1.2.0)
     geocoder (1.1.9)
     hashie (2.0.5)
     hike (1.2.3)
@@ -64,7 +67,10 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     multi_json (1.8.2)
+    multipart-post (1.2.0)
     oauth (0.4.7)
+    octokit (2.6.3)
+      sawyer (~> 0.5.1)
     pg (0.17.0)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -99,6 +105,9 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    sawyer (0.5.1)
+      addressable (~> 2.3.5)
+      faraday (~> 0.8, < 0.10)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -126,6 +135,7 @@ DEPENDENCIES
   geocoder
   jquery-rails
   linkedin
+  octokit
   pg
   rails (= 3.2.14)
   sass-rails (~> 3.2.3)

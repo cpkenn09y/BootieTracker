@@ -40,3 +40,5 @@ gem 'dotenv-rails', :groups => [:development, :test]
 
 # To use debugger
 # gem 'debugger'
+
+gem  "octokit"
