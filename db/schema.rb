@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131214082944) do
+ActiveRecord::Schema.define(:version => 20131214092723) do
 
   create_table "cohorts", :id => false, :force => true do |t|
     t.integer  "c_id"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(:version => 20131214082944) do
     t.string   "current_location"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.string   "latitude"
+    t.string   "longitude"
   end
 
 end

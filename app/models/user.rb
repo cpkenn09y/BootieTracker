@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
 
   belongs_to :cohort
 
+  geocoded_by :current_location
+  before_save :geocode, :if => :current_location_changed?
+
   def update_location
 
   end
