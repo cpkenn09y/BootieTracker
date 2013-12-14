@@ -12,6 +12,7 @@ client = LinkedIn::Client.new(ENV["CONSUMER_KEY"], ENV["CONSUMER_SECRET"])
 
 client.authorize_from_access(ENV["ACCESS_KEY"], ENV["ACCESS_TOKEN"])
 
+p "seeding user data"
 DBC::User.all.each do |user|
   # case user.profile[:linked_in]
   # when ""
@@ -58,4 +59,11 @@ DBC::User.all.each do |user|
 
 end
 
+
+p "seeding cohort data"
+DBC::Cohort.all.each do |cohort|
+  c = Cohort.create(c_id: cohort.id, cohort_name: cohort.name,  location: cohort.location)
+  p cohort.name
+  p c
+end
 p "done"
