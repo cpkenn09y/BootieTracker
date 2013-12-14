@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="back-image"></div>
+  <% if @message %>
+  <div class="alert alert-success "><strong>Success!</strong>: <%= @message %></div>
+  <% end %>
+  <div class="col-md-6 profile-form">
+  <h1>Change Your Profile</h1>
+
+    <%= form_for @user, {:role =>"form"} do |f| %>
+    <div class="form-group">
+      <%= f.label :name %></br>
+      <%= f.text_field :name, :class => "user-input" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email %></br>
+      <%= f.text_field :email, :class => "user-input" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :linkedin_url%></br>
+      <%= f.text_field :linkedin_url, :class => "user-input" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :facebook_url %></br>
+      <%= f.text_field :facebook_url, :class => "user-input" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :twitter_url %></br>
+      <%= f.text_field :twitter_url, :class => "user-input" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :github_url %></br>
+      <%= f.text_field :github_url, :class => "user-input" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :blog %></br>
+      <%= f.text_field :blog, :class => "user-input" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :headline %></br>
+      <%= f.text_field :headline, :class => "user-input" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :git_location %></br>
+      <%= f.text_field :git_location, :class => "user-input" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :linkedin_location %></br>
+      <%= f.text_field :linkedin_location, :class => "user-input" %>
+    </div>
+    <%= f.submit "Update Yo'Self Fool!" %>
+    <% end %>
+  </div>
+
+  <div class="col-md-6 ">
+   <div class="profile-preview">
+  <h1>Change Your Profile</h1>
+
+    <div class="profile-picture">
+     <%= gravatar_image_tag(@user.email, :alt => @user.name,  :id => "big-profile-image", :display => "block")  %></br>
+     <a href="https://en.gravatar.com/connect/">change your gravatar</a>
+   </div>
+    <p><strong>name</strong> : <%= @user.name %></p>
+    <p><strong>email</strong> : <%= @user.email %></p>
+    <p><strong>linkedin_url</strong> : <a href=<%= @user.linkedin_url %>><%= @user.linkedin_url %></a></p>
+    <p><strong>facebook_url</strong> : <a href=<%= @user.facebook_url %>><%= @user.facebook_url %></a></p>
+    <p><strong>twitter_url</strong> : <a href=<%= @user.twitter_url %>><%= @user.twitter_url %></a></p>
+    <p><strong>github_url</strong> : <a href=<%= @user.github_url %>><%= @user.github_url %></a></p>
+    <p><strong>blog</strong> : <a href=<%= @user.blog %>><%= @user.blog %></a></p>
+    <p><strong>headline</strong> : <%= "No Love for your headline>?" if @user.headline == nil %></p>
+    <p><strong>git_location</strong> : <%= @user.git_location %></p>
+    <p><strong>linkedin_location</strong> : <%= @user.linkedin_location %></p>
+  </div>
+
+
+</div>
+
+</div>

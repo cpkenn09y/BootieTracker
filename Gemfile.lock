@@ -65,6 +65,9 @@ GEM
     ffi (1.9.3)
     formatador (0.2.4)
     geocoder (1.1.9)
+    gravatar-ultimate (2.0.0)
+      activesupport (>= 2.3.14)
+      rack
     gravatar_image_tag (1.2.0)
     guard (2.2.5)
       formatador (>= 0.2.4)
@@ -196,6 +199,7 @@ DEPENDENCIES
   dbc-ruby
   dotenv-rails
   geocoder
+  gravatar-ultimate
   gravatar_image_tag
   guard
   guard-livereload
