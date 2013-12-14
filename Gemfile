@@ -31,6 +31,7 @@ gem "dbc-ruby"
 gem 'jquery-rails'
 gem "linkedin"
 gem 'dotenv-rails', :groups => [:development, :test]
+gem 'gravatar-ultimate'
 group :development do
   gem "pry"
   gem "guard"
