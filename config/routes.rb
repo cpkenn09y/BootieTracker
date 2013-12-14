@@ -1,9 +1,11 @@
 BootyTracker::Application.routes.draw do
 
   get "welcome/index"
+  get "/auth" => 'sessions#create'
+  get "/auth/logout" => 'sessions#destroy'
 
   get "maps/index"
-
+  match '/auth/:provider/callback' => 'sessions#create'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -53,7 +55,7 @@ BootyTracker::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'welcome#index'
+  root :to => 'maps#index'
 
   # See how all your routes lay out with "rake routes"
 
