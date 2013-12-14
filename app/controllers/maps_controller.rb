@@ -34,6 +34,7 @@ private
       role: user.role,
       headline: user.headline,
       current_location: user.current_location,
+      git_location: user.git_location,
       latitude: user.latitude,
       longitude: user.longitude,
     }}
