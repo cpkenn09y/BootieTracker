@@ -1,10 +1,11 @@
 class User < ActiveRecord::Base
-  attr_accessible :headline, :location_name, :current_location, :bio, :blog, :cohort_id, :email, :facebook_url, :github_url, :hacker_news_url, :hometown, :linked_in_url, :name, :quora, :twitter_url
+  attr_accessible :headline, :linkedin_location, :git_location, :current_location, :bio, :blog, :cohort_id, :email, :facebook_url, :github_url, :hacker_news_url, :hometown, :linkedin_url, :name, :quora, :twitter_url
 
   belongs_to :cohort
 
   geocoded_by :current_location
-  before_save :geocode, :if => :current_location_changed?
+  before_save :geocode
+  # , :if => :key => "value", current_location_changed?
 
 
   def self.from_sf

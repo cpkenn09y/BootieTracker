@@ -3,13 +3,15 @@ class MapsController < ApplicationController
 
   def index
     users = User.all
+    p "????"
+    p users.count
     @user_data = []
     users.each do |user|
       @user_data << { :user_name => {
         name: user.name,
         email: user.email,
         cohort_name: user.cohort,
-        linked_in: user.linked_in_url,
+        linked_in: user.linkedin_url,
         facebook: user.facebook_url,
         twitter: user.twitter_url,
         github: user.github_url,
