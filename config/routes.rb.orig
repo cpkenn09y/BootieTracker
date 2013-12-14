@@ -1,8 +1,10 @@
 BootyTracker::Application.routes.draw do
-
+<<<<<<< HEAD
   get "welcome/index"
+=======
 
   get "maps/index"
+>>>>>>> ce9223c90ac1decef1fa3caab2ac21708c1cc0e1
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
