@@ -14,7 +14,7 @@
 
 .navbar {
 margin: 0 0 0 0;
-background-color: rgba(255,255,255,0.2);
+background-color: rgba(0,0,0,0.3);
 z-index: 2;
 padding:0 100px 0 100px;
 /*opacity: 0.2*/
@@ -33,6 +33,13 @@ padding:0 100px 0 100px;
 .checkbox{
   float:right;
   display:block;
+}
+
+.navbar-brand {
+  color: white;
+}
+.navbar-nav li a{
+  color: white;
 }
 
 body{
