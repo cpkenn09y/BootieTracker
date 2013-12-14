@@ -1,9 +1,11 @@
 BootyTracker::Application.routes.draw do
 
   get "welcome/index"
+  get "/auth" => 'sessions#create'
+  get "/auth/logout" => 'sessions#destroy'
 
   get "maps/index"
-
+  match '/auth/:provider/callback' => 'sessions#create'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

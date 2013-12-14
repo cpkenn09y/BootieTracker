@@ -6,8 +6,7 @@ gem 'rails', '3.2.14'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'sqlite3'
-gem 'faker'
+
 gem 'geocoder'
 
 # Gems used only for assets and not required
@@ -21,11 +20,26 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+gem 'gravatar_image_tag'
 
+gem 'oauth2', '~>0.8.0'
+gem 'omniauth'
+gem 'omniauth-oauth2'
+gem 'omniauth-dbc', :git => 'https://github.com/Devbootcamp/omniauth-dbc.git'
+gem 'json'
 gem "dbc-ruby"
 gem 'jquery-rails'
 gem "linkedin"
 gem 'dotenv-rails', :groups => [:development, :test]
+group :development do
+  gem "pry"
+  gem "guard"
+  gem "guard-rails"
+  gem "rack-livereload"
+  gem "quiet_assets"
+  gem "sextant"
+  gem "guard-livereload"
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -40,3 +54,5 @@ gem 'dotenv-rails', :groups => [:development, :test]
 
 # To use debugger
 # gem 'debugger'
+
+gem  "octokit"
