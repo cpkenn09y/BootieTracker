@@ -35,9 +35,17 @@
   display:block;
 }
 
+.navbar-collapse {
+  padding-bottom: 15px;
+}
+
 .navbar-brand {
   color: white;
+  padding: 35px 15px 5px;
 }
+
+
+
 .navbar-nav li a{
   color: white;
 }
@@ -121,4 +129,8 @@ html, body, #map-canvas {
 .content-box {
   width: 10%;
   min-width: 200px;
+}
+
+.profile_image {
+  float:right;
 }
