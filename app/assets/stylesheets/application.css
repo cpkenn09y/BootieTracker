@@ -124,3 +124,8 @@ width:40%;
 .profile_image {
   float:right;
 }
+
+#profile_image{
+  opacity: 0.6;
+ };
+}
