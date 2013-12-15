@@ -11,7 +11,8 @@ var icons = {
 
 function createMap() {
   var mapOptions = {
-    zoom: 6
+    zoom: 6,
+    disableDefaultUI: true
   };
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 }
@@ -63,7 +64,7 @@ function setPointsOntoMapAndAttachListeners(bootsDataForMap) {
 }
 
 function attachListenerOntoMarker(bootData, marker) {
-  google.maps.event.addListener(marker, "mouseover", function(event) {
+  google.maps.event.addListener(marker, "click", function(event) {
     createInfoWindowUponHover(bootData, marker)
   })
 }
@@ -78,16 +79,15 @@ function attachListersOntoRadioButtons() {
 function createInfoWindowUponHover(bootData, marker) {
   var contentString = '<div class="content-box">'+
     '<img src='+bootData.user.image_url+'>'+
-    '<p>'+bootData.user.name+'</p>'+
-    '<a href=mailto:'+bootData.user.email+'><i class="fa fa-envelope-o"></i>'+bootData.user.email+'</a>'+
-    '<p><i class="fa fa-linux"></i>'+bootData.user.cohort_name+'</p>'+
-    '<p>'+bootData.user.current_location+'</p>'+
-    // '<p>'+bootData.user.git_location+'</p>'+
-    '<a href='+bootData.user.linked_in+'target="_blank"><i class="fa fa-linkedin-square"></i>&nbsp</a>'+
-    '<a href='+bootData.user.github+'target="_blank"><i class="fa fa-github-square"></i>&nbsp</a>'+
-    '<a href='+bootData.user.facebook+'target="_blank"><i class="fa fa-facebook-square"></i>&nbsp</a>'+
-    '<a href='+bootData.user.twitter+'target="_blank"><i class="fa fa-twitter-square"></i>&nbsp</a>'+
-    '<a href='+bootData.user.blog+'target="_blank"><i class="fa fa-tumblr-square"></i>&nbsp</a>'+
+    '<p>'+bootData.user.name+' | <strong>'+bootData.user.current_location+'</strong></p>'+
+    '<a href=mailto:'+bootData.user.email+'><i class="fa-3x fa fa-envelope-o"></i>'+bootData.user.email+'</a>'+
+    '<p><i class="fa-3x fa fa-linux"></i>'+bootData.user.cohort_name.cohort_name+'</p>'
+    if (bootData.user.linked_in !=== null)
+    '<a href='+bootData.user.linked_in+'target="_blank"><i class="fa-3x fa fa-linkedin-square"></i>&nbsp</a>'+
+    '<a href='+bootData.user.github+'target="_blank"><i class="fa-3x fa fa-github-square"></i>&nbsp</a>'+
+    '<a href='+bootData.user.facebook+'target="_blank"><i class="fa-3x fa fa-facebook-square"></i>&nbsp</a>'+
+    '<a href='+bootData.user.twitter+'target="_blank"><i class="fa-3x fa fa-twitter-square"></i>&nbsp</a>'+
+    '<a href='+bootData.user.blog+'target="_blank"><i class="fa-3x fa fa-tumblr-square"></i>&nbsp</a>'+
   '</div>';
 
   var infowindow = new google.maps.InfoWindow({

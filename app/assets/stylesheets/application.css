@@ -12,12 +12,12 @@
  *= require_tree .
  */
 
-.navbar {
-margin: 0 0 0 0;
-background-color: rgba(0,0,0,0.3);
-z-index: 2;
-padding:0 100px 0 100px;
-/*opacity: 0.2*/
+ .navbar {
+  margin: 0 0 0 0;
+  background-color: rgba(0,0,0,0.3);
+  z-index: 2;
+  padding:0 100px 0 100px;
+  /*opacity: 0.2*/
 }
 #profile_image{
   float:left;
@@ -58,8 +58,8 @@ strong{
   font-style: d
 }
 .user-input{
-width:80%;
-min-width: 250px;
+  width:80%;
+  min-width: 250px;
 
 }
 .container{
@@ -95,20 +95,30 @@ min-width: 250px;
 .profile-form{
   min-width: 400px;
   padding: 25px 0 50px 25px;
-    border:1px solid black;
+  border:1px solid black;
   -moz-border-radius-bottomleft: 100px 100px;
   border-bottom-left-radius: 100px 100px;
   -moz-border-radius-topright: 100px 100px;
-border-top-right-radius: 100px 100px;
-margin-right: 30px;
-width:40%;
+  border-top-right-radius: 100px 100px;
+  margin-right: 30px;
+  width:40%;
 }
 #big-profile-image{
   width:50%;
   height:50%;
-    -moz-border-radius-bottomright: 75px 75px;
+  -moz-border-radius-bottomright: 75px 75px;
   border-bottom-right-radius: 75px 75px;
   -moz-border-radius-topleft: 75px 75px;
   border-top-left-radius: 75px 75px;
   margin-top: 25px;
+}
+
+html, body, #map-canvas {
+  height: 100%;
+  margin: 0px;
+  padding: 0px
+}
+.content-box {
+  width: 10%;
+  min-width: 200px;
 }
