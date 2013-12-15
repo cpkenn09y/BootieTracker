@@ -5,6 +5,9 @@ BootyTracker::Application.routes.draw do
   get "/auth/logout" => 'sessions#destroy'
 
   get "maps/index"
+  get "maps/query_chicago" => "maps#query_chicago"
+  get "maps/query_san_francisco" => "maps#query_san_francisco"
+
   match '/auth/:provider/callback' => 'sessions#create'
   resources :users, :only => ["edit", "update", "show"]
 

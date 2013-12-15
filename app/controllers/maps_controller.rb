@@ -1,19 +1,31 @@
 class MapsController < ApplicationController
   respond_to :json, :html
+<<<<<<< Updated upstream
+=======
+
+  def query_chicago
+    @user_data = []
+    chicago_boots = User.from_chicago
+    create_user_data_json(chicago_boots)
+    render :json => {user: @user_data}
+  end
+
+  def query_san_francisco
+    @user_data = []
+    sf_boots = User.from_sf
+    create_user_data_json(sf_boots)
+    render :json => {user: @user_data}
+  end
+
+>>>>>>> Stashed changes
   def index
     if session[:user_id]
-      p "there is a USER!"
       @user= User.find(session[:user_id])
     end
     users = User.all
     @user_data = []
     create_user_data_json(users)
-
-    respond_to do |format|
-      format.html
-      format.json { render :json => @user_data}
-      end
-    end
+    render_to_json
   end
 
 private
@@ -39,4 +51,11 @@ private
     }}
   end
 
+  def render_to_json
+    respond_to do |format|
+      format.html
+      format.json { render :json => @user_data}
+      end
+    end
+  end
 end

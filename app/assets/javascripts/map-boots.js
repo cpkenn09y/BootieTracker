@@ -1,5 +1,4 @@
 var map;
-
 var icons = {
     "San Francisco": {
     icon: 'https://s3-us-west-2.amazonaws.com/booty-map/sf.png'
@@ -9,9 +8,17 @@ var icons = {
   }
 };
 
+var markerArray = [];
 function createMap() {
   var mapOptions = {
     zoom: 6
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+}
+
+function createMapB() {
+  var mapOptions = {
+    zoom: 5
   };
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 }
@@ -38,13 +45,21 @@ function centersMapOnYourLocation() {
   }
 }
 
-function grabBootsDataForMap() {
-  $.getJSON("/maps/index", function(bootsDataForMap) {
+function grabBootsDataForMap(controllerAction) {
+  $.getJSON("/maps/"+controllerAction, function(bootsDataForMap) {
     setPointsOntoMapAndAttachListeners(bootsDataForMap)
   })
 }
 
 function setPointsOntoMapAndAttachListeners(bootsDataForMap) {
+  console.log(bootsDataForMap)
+  for(var i = 0, num = markerArray.length; i < num; i++){
+      markerArray[i].setMap(null)
+
+  }
+
+   markerArray = []
+
   for(var i = 0, num = bootsDataForMap.length; i < num; i++) {
     var lat = bootsDataForMap[i].user.latitude
     var lon = bootsDataForMap[i].user.longitude
@@ -55,11 +70,15 @@ function setPointsOntoMapAndAttachListeners(bootsDataForMap) {
       position: user,
       title: name,
       icon: icons[bootsDataForMap[i].user.cohort_name.location].icon
+      map: map,
     })
+
     marker.setMap(map);
+    markerArray.push(marker)
+    console.log(markerArray)
     attachListenerOntoMarker(bootsDataForMap[i], marker)
   }
-  attachListersOntoRadioButtons()
+  console.log(markerArray);
 }
 
 function attachListenerOntoMarker(bootData, marker) {
@@ -70,8 +89,19 @@ function attachListenerOntoMarker(bootData, marker) {
 
 function attachListersOntoRadioButtons() {
   $('input:radio').on("change", function(event){
-    console.log(event)
-    debugger
+    // console.log(event)
+    // controllerAction = this.value
+    // createMap()
+    // centersMapOnYourLocation()
+    // grabBootsDataForMap(controllerAction)
+    $.ajax({
+      url: '/maps/query_'+this.value,
+      type: 'GET'
+    }).success(function(studentsFromDBCBranchLocation){
+      refreshMapBasedOnNewQuery(studentsFromDBCBranchLocation)
+    })
+
+    // this.value
   })
 }
 
@@ -112,10 +142,22 @@ function handleNoGeolocation(errorFlag) {
   map.setCenter(options.position);
 }
 
+function refreshMapBasedOnNewQuery(studentsFromDBCBranchLocation) {
+  console.log(studentsFromDBCBranchLocation)
+  // createMapB()
+  centersMapOnYourLocation()
+
+  setPointsOntoMapAndAttachListeners(studentsFromDBCBranchLocation)
+  // debugger
+  // $('#map-canvas').ready(setPointsOntoMapAndAttachListeners(studentsFromDBCBranchLocation))
+  // setTimeOut(setPointsOntoMapAndAttachListeners(studentsFromDBCBranchLocation), 500)
+}
+
 function initialize() {
   createMap()
   centersMapOnYourLocation()
-  grabBootsDataForMap()
+  grabBootsDataForMap('index')
+  attachListersOntoRadioButtons()
 }
 
 $(document).ready(initialize)
