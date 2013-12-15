@@ -82,13 +82,23 @@ function createInfoWindowUponHover(bootData, marker) {
     '<p>'+bootData.user.name+' | <strong>'+bootData.user.current_location+'</strong></p>'+
     '<a href=mailto:'+bootData.user.email+'><i class="fa-3x fa fa-envelope-o"></i>'+bootData.user.email+'</a>'+
     '<p><i class="fa-3x fa fa-linux"></i>'+bootData.user.cohort_name.cohort_name+'</p>'
-    if (bootData.user.linked_in !=== null)
-    '<a href='+bootData.user.linked_in+'target="_blank"><i class="fa-3x fa fa-linkedin-square"></i>&nbsp</a>'+
-    '<a href='+bootData.user.github+'target="_blank"><i class="fa-3x fa fa-github-square"></i>&nbsp</a>'+
-    '<a href='+bootData.user.facebook+'target="_blank"><i class="fa-3x fa fa-facebook-square"></i>&nbsp</a>'+
-    '<a href='+bootData.user.twitter+'target="_blank"><i class="fa-3x fa fa-twitter-square"></i>&nbsp</a>'+
-    '<a href='+bootData.user.blog+'target="_blank"><i class="fa-3x fa fa-tumblr-square"></i>&nbsp</a>'+
-  '</div>';
+    if (bootData.user.linked_in){
+      contentString = contentString + '<a href='+bootData.user.linked_in+'target="_blank"><i class="fa-3x fa fa-linkedin-square"></i>&nbsp</a>'
+    }
+    if (bootData.user.facebook){
+      contentString = contentString + '<a href='+bootData.user.facebook+'target="_blank"><i class="fa-3x fa fa-facebook-square"></i>&nbsp</a>'
+    }
+    if (bootData.user.github){
+      contentString = contentString + '<a href='+bootData.user.github+'target="_blank"><i class="fa-3x fa fa-github-square"></i>&nbsp</a>'
+    }
+    if (bootData.user.twitter){
+      contentString = contentString + '<a href='+bootData.user.twitter+'target="_blank"><i class="fa-3x fa fa-twitter-square"></i>&nbsp</a>'
+
+    }
+    if(bootData.user.blog){
+    contentString = contentString +  '<a href='+bootData.user.blog+'target="_blank"><i class="fa-3x fa fa-tumblr-square"></i>&nbsp</a>'
+    }
+    contentString = contentString +  '</div>';
 
   var infowindow = new google.maps.InfoWindow({
     content: contentString
