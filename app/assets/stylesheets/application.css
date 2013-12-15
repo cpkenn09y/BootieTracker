@@ -135,3 +135,8 @@ html, body, #map-canvas {
 .profile_image {
   float:right;
 }
+
+#profile_image{
+  opacity: 0.6;
+ };
+}
