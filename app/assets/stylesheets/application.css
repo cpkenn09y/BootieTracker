@@ -53,5 +53,62 @@ padding:0 100px 0 100px;
 body{
   font-family: 'Voces', cursive;
 }
+strong{
+  font-weight: 900;
+  font-style: d
+}
+.user-input{
+width:80%;
+min-width: 250px;
 
+}
+.container{
 
+}
+.back-image{
+  background-image: url("boot.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  min-height: 800px;
+}
+.alert{
+  width:60%;
+}
+.profile-preview{
+  padding: 25px 0 50px 75px;
+  border:1px solid black;
+  -moz-border-radius-bottomright: 100px 100px;
+  border-bottom-right-radius: 100px 100px;
+  -moz-border-radius-topleft: 100px 100px;
+  border-top-left-radius: 100px 100px;
+  /*margin-top: 25px;*/
+  text-align: left;
+}
+
+.profile-form{
+  min-width: 400px;
+  padding: 25px 0 50px 25px;
+    border:1px solid black;
+  -moz-border-radius-bottomleft: 100px 100px;
+  border-bottom-left-radius: 100px 100px;
+  -moz-border-radius-topright: 100px 100px;
+border-top-right-radius: 100px 100px;
+margin-right: 30px;
+width:40%;
+}
+#big-profile-image{
+  width:50%;
+  height:50%;
+    -moz-border-radius-bottomright: 75px 75px;
+  border-bottom-right-radius: 75px 75px;
+  -moz-border-radius-topleft: 75px 75px;
+  border-top-left-radius: 75px 75px;
+  margin-top: 25px;
+}
