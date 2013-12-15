@@ -6,6 +6,9 @@ BootyTracker::Application.routes.draw do
 
   get "maps/index"
   match '/auth/:provider/callback' => 'sessions#create'
+  resources :users, :only => ["edit", "update", "show"]
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

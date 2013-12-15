@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
 gem 'pg'
+gem 'gravatar-ultimate'
 gem 'gravatar_image_tag'
 gem 'oauth2', '~>0.8.0'
-gem 'gravatar-ultimate'
 gem 'omniauth'
 gem 'omniauth-oauth2'
 gem 'omniauth-dbc', :git => 'https://github.com/Devbootcamp/omniauth-dbc.git'
@@ -22,11 +22,8 @@ group :assets do
 end
 
 
-group :development, :test do
-  gem 'dotenv-rails'
-end
-
 group :development do
+  gem 'dotenv-rails'
   gem "pry"
   gem "guard"
   gem "guard-rails"

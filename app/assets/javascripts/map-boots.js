@@ -1,5 +1,13 @@
 var map;
 
+var icons = {
+    "San Francisco": {
+    icon: 'https://s3-us-west-2.amazonaws.com/booty-map/sf.png'
+  },
+  "Chicago": {
+    icon: 'https://s3-us-west-2.amazonaws.com/booty-map/chicago.png'
+  }
+};
 function createMap() {
   var mapOptions = {
     zoom: 6
@@ -41,9 +49,11 @@ function setPointsOntoMapAndAttachListeners(bootsDataForMap) {
     var lon = bootsDataForMap[i].user.longitude
     var name = bootsDataForMap[i].user.name
     var user = new google.maps.LatLng(lat, lon);
+
     var marker = new google.maps.Marker({
       position: user,
-      title: name
+      title: name,
+      icon: icons[bootsDataForMap[i].user.cohort_name.location].icon
     })
     marker.setMap(map);
     attachListenerOntoMarker(bootsDataForMap[i], marker)
