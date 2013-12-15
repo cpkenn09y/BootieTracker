@@ -35,9 +35,17 @@ padding:0 100px 0 100px;
   display:block;
 }
 
+.navbar-collapse {
+  padding-bottom: 15px;
+}
+
 .navbar-brand {
   color: white;
+  padding: 35px 15px 5px;
 }
+
+
+
 .navbar-nav li a{
   color: white;
 }
@@ -111,4 +119,8 @@ width:40%;
   -moz-border-radius-topleft: 75px 75px;
   border-top-left-radius: 75px 75px;
   margin-top: 25px;
+}
+
+.profile_image {
+  float:right;
 }
