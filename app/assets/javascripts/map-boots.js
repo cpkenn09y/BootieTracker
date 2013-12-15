@@ -80,8 +80,8 @@ function createInfoWindowUponHover(bootData, marker) {
   var contentString = '<div class="content-box">'+
     '<img src='+bootData.user.image_url+'>'+
     '<p>'+bootData.user.name+' | <strong>'+bootData.user.current_location+'</strong></p>'+
-    '<a href=mailto:'+bootData.user.email+'><i class="fa-3x fa fa-envelope-o"></i>'+bootData.user.email+'</a>'+
-    '<p><i class="fa-3x fa fa-linux"></i>'+bootData.user.cohort_name.cohort_name+'</p>'
+    '<a href=mailto:'+bootData.user.email+'>' + bootData.user.email+'</a>'+
+    '<p>' +bootData.user.cohort_name.cohort_name+'</p>'
     if (bootData.user.linked_in){
       contentString = contentString + '<a href='+bootData.user.linked_in+'target="_blank"><i class="fa-3x fa fa-linkedin-square"></i>&nbsp</a>'
     }
