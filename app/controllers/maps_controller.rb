@@ -1,7 +1,5 @@
 class MapsController < ApplicationController
   respond_to :json, :html
-<<<<<<< Updated upstream
-=======
 
   def query_chicago
     @user_data = []
@@ -17,7 +15,6 @@ class MapsController < ApplicationController
     render :json => {user: @user_data}
   end
 
->>>>>>> Stashed changes
   def index
     if session[:user_id]
       @user= User.find(session[:user_id])

@@ -1,4 +1,5 @@
 var map;
+var markersArray = [];
 var icons = {
     "San Francisco": {
     icon: 'https://s3-us-west-2.amazonaws.com/booty-map/sf.png'
@@ -7,8 +8,13 @@ var icons = {
     icon: 'https://s3-us-west-2.amazonaws.com/booty-map/chicago.png'
   }
 };
+function clearOverlays() {
+  for (var i = 0; i < markersArray.length; i++ ) {
+    markersArray[i].setMap(null);
+  }
+  markersArray.length = 0;
+}
 
-var markerArray = [];
 function createMap() {
   var mapOptions = {
     zoom: 6
@@ -47,53 +53,41 @@ function centersMapOnYourLocation() {
 
 function grabBootsDataForMap(controllerAction) {
   $.getJSON("/maps/"+controllerAction, function(bootsDataForMap) {
+    console.log("HESG")
+    console.log(bootsDataForMap)
     setPointsOntoMapAndAttachListeners(bootsDataForMap)
   })
 }
 
 function setPointsOntoMapAndAttachListeners(bootsDataForMap) {
-  console.log(bootsDataForMap)
-  for(var i = 0, num = markerArray.length; i < num; i++){
-      markerArray[i].setMap(null)
-
-  }
-
-   markerArray = []
-
   for(var i = 0, num = bootsDataForMap.length; i < num; i++) {
     var lat = bootsDataForMap[i].user.latitude
     var lon = bootsDataForMap[i].user.longitude
     var name = bootsDataForMap[i].user.name
     var user = new google.maps.LatLng(lat, lon);
-
     var marker = new google.maps.Marker({
       position: user,
       title: name,
       icon: icons[bootsDataForMap[i].user.cohort_name.location].icon
-      map: map,
     })
+    // console.log("adding a marker")
+    // console.log(marker)
+
 
     marker.setMap(map);
-    markerArray.push(marker)
-    console.log(markerArray)
+    markersArray.push(marker);
     attachListenerOntoMarker(bootsDataForMap[i], marker)
   }
-  console.log(markerArray);
 }
 
 function attachListenerOntoMarker(bootData, marker) {
-  google.maps.event.addListener(marker, "mouseover", function(event) {
+  google.maps.event.addListener(marker, "click", function(event) {
     createInfoWindowUponHover(bootData, marker)
   })
 }
 
 function attachListersOntoRadioButtons() {
   $('input:radio').on("change", function(event){
-    // console.log(event)
-    // controllerAction = this.value
-    // createMap()
-    // centersMapOnYourLocation()
-    // grabBootsDataForMap(controllerAction)
     $.ajax({
       url: '/maps/query_'+this.value,
       type: 'GET'
@@ -110,7 +104,7 @@ function createInfoWindowUponHover(bootData, marker) {
     '<img src='+bootData.user.image_url+'>'+
     '<p>'+bootData.user.name+'</p>'+
     '<a href=mailto:'+bootData.user.email+'><i class="fa fa-envelope-o"></i>'+bootData.user.email+'</a>'+
-    '<p><i class="fa fa-linux"></i>'+bootData.user.cohort_name+'</p>'+
+    '<p><i class="fa fa-linux"></i>'+bootData.user.cohort_name.cohort_name+'</p>'+
     '<p>'+bootData.user.current_location+'</p>'+
     // '<p>'+bootData.user.git_location+'</p>'+
     '<a href='+bootData.user.linked_in+'target="_blank"><i class="fa fa-linkedin-square"></i>&nbsp</a>'+
@@ -143,11 +137,13 @@ function handleNoGeolocation(errorFlag) {
 }
 
 function refreshMapBasedOnNewQuery(studentsFromDBCBranchLocation) {
-  console.log(studentsFromDBCBranchLocation)
-  // createMapB()
-  centersMapOnYourLocation()
 
+  clearOverlays()
+  console.log(markersArray)
+  // centersMapOnYourLocation()
   setPointsOntoMapAndAttachListeners(studentsFromDBCBranchLocation)
+  console.log(markersArray)
+
   // debugger
   // $('#map-canvas').ready(setPointsOntoMapAndAttachListeners(studentsFromDBCBranchLocation))
   // setTimeOut(setPointsOntoMapAndAttachListeners(studentsFromDBCBranchLocation), 500)
