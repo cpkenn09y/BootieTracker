@@ -23,7 +23,6 @@ end
 
 
 group :development do
-  gem 'dotenv-rails'
   gem "pry"
   gem "guard"
   gem "guard-rails"

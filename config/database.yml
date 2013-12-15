@@ -1,6 +1,6 @@
 development:
   adapter: postgresql
-  database: booty_tracker_dev
+  database: bootie_tracker_dev
   encoding: unicode
   pool: 10
   timeout: 5000
@@ -8,6 +8,12 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: booty_tracker_test
+  database: bootie_tracker_test
   pool: 5
   timeout: 5000
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: bootie_tracker_production
+  pool: 5
