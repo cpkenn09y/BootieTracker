@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
     auth = Authentication.find_or_create_from_auth_hash(auth_hash)
     @user =  User.find_or_create_from_auth_hash(auth_hash)
     session[:user_id] = @user.id
+    redirect_to root_url
   end
 
 protected
