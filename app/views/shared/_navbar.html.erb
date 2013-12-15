@@ -24,14 +24,13 @@
 
 
     </ul>
-    <form class="navbar-form navbar-left">
-       <label class="checkbox">
-      <input type="checkbox" class="nav-checkbox" value="option1"> San Francisco
-    </label>
-    <label class="checkbox">
-      <input type="checkbox" class="nav-checkbox" value="option2"> Chicago
-    </label>
 
+    <div id='radio-buttons'>
+      <%= radio_button_tag(:dbc_location, "Chicago") %>
+      <%= label_tag(:boots, "Chicago Students") %>
+      <%= radio_button_tag(:dbc_location, "SF") %>
+      <%= label_tag(:boots, "San Francisco Students") %>
+    </div>
   </form>
 </div>
 </nav>
