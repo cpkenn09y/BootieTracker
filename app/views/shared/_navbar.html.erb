@@ -7,30 +7,32 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span> -->
     </button>
-    <a class="navbar-brand" href="/">BootyTracker</a>
+    <a class="navbar-brand" href="/">BootieTracker</a>
   </div>
 <img src="">
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
 
+      <li><a href="/about/index">About</a></li>
+
       <li class="active"><a href="/auth/dbc">Login</a></li>
       <li><a href="/auth/logout">LogOut</a></li>
       <% if @user %>
-      <a href=<%= "/users/#{@user.id}/edit" %>>
-      <%= gravatar_image_tag(@user.email, :alt => @user.name, :id => "profile_image", :style => "width:50px;height:50px; border-radius:100%;")  %></a><br/>
+      <div class="profile_image"><a href=<%= "/users/#{@user.id}/edit" %>>
+      <%= gravatar_image_tag(@user.email, :alt => @user.name, :id => "profile_image", :style => "width:50px;height:50px; border-radius:100%;")  %></a><br/><div>
       <!-- <h6>Hi <%=@user.name %> miss butt rubbing already?</h6> -->
       <% end %>
 
 
     </ul>
 
-    <div id='radio-buttons'>
-      <%= radio_button_tag(:dbc_location, "Chicago") %>
-      <%= label_tag(:boots, "Chicago Students") %>
-      <%= radio_button_tag(:dbc_location, "SF") %>
-      <%= label_tag(:boots, "San Francisco Students") %>
-    </div>
+  <!--   <div id='radio-buttons'>
+      <%#= radio_button_tag(:dbc_location, "Chicago") %>
+      <%#= label_tag(:boots, "Chicago Students") %>
+      <%#= radio_button_tag(:dbc_location, "SF") %>
+      <%#= label_tag(:boots, "San Francisco Students") %>
+    </div> -->
   </form>
 </div>
 </nav>
