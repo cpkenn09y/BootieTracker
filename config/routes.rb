@@ -1,10 +1,13 @@
 BootyTracker::Application.routes.draw do
 
   get "welcome/index"
+
   get "/auth" => 'sessions#create'
   get "/auth/logout" => 'sessions#destroy'
 
   get "maps/index"
+  get "about/index"
+
   match '/auth/:provider/callback' => 'sessions#create'
   resources :users, :only => ["edit", "update", "show"]
 
