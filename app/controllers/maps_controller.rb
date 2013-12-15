@@ -24,7 +24,7 @@ private
       name: user.name,
       image_url: gravatar_url,
       email: user.email,
-      cohort_name: user.cohort.cohort_name,
+      cohort_name: user.cohort,
       linked_in: user.linkedin_url,
       facebook: user.facebook_url,
       twitter: user.twitter_url,
