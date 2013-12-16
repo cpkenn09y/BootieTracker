@@ -71,8 +71,6 @@ function attachListenerOntoMarker(bootData, marker) {
 
 function attachListersOntoRadioButtons() {
   $('input:radio').on("change", function(event){
-    console.log(event)
-    debugger
   })
 }
 
