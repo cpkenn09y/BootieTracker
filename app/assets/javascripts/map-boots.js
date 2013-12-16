@@ -58,7 +58,7 @@ function setPointsOntoMapAndAttachListeners(bootsDataForMap) {
       title: name,
       icon: icons[bootsDataForMap[i].user.cohort_name.location].icon
     })
-    var mcOptions = {gridSize: 20, maxZoom: 15, minimumClusterSize:5};
+    var mcOptions = {gridSize: 50, maxZoom: 15, minimumClusterSize:5};
     markers.push(marker)
     // console.log(markers)
     var mc = new MarkerClusterer(map, markers, mcOptions);
