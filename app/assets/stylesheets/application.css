@@ -17,21 +17,20 @@
   background-color: rgba(0,0,0,0.3);
   z-index: 2;
   padding:0 100px 0 100px;
-  /*opacity: 0.2*/
 }
+
 #profile_image{
   float:left;
   display:block;
 }
+
 #map-canvas {
-  /*position:fixed;*/
   margin-top: -72px  !important;
-  /*z-index: -1;*/
-  /*height:100%;*/
   height:100%;
   width:100%;
   overflow: visible !important;
 }
+
 .checkbox{
   float:right;
   display:block;
@@ -45,8 +44,6 @@
   color: white;
   padding: 35px 15px 5px;
 }
-
-
 
 .navbar-nav li a{
   color: white;
@@ -63,18 +60,21 @@
 body{
   font-family: 'Voces', cursive;
 }
+
 strong{
   font-weight: 900;
   font-style: d
 }
+
 .user-input{
   width:80%;
   min-width: 250px;
-
 }
+
 .container{
 
 }
+
 .back-image{
   background-image: url("boot.png");
   background-size: 100%;
@@ -88,9 +88,11 @@ strong{
   z-index: -1;
   min-height: 800px;
 }
+
 .alert{
   width:60%;
 }
+
 .profile-preview{
   padding: 25px 0 50px 75px;
   border:1px solid black;
@@ -98,7 +100,6 @@ strong{
   border-bottom-right-radius: 100px 100px;
   -moz-border-radius-topleft: 100px 100px;
   border-top-left-radius: 100px 100px;
-  /*margin-top: 25px;*/
   text-align: left;
 }
 
@@ -113,6 +114,7 @@ strong{
   margin-right: 30px;
   width:40%;
 }
+
 #big-profile-image{
   width:50%;
   height:50%;
@@ -128,6 +130,7 @@ html, body, #map-canvas {
   margin: 0px;
   padding: 0px
 }
+
 .content-box {
   width: 10%;
   min-width: 200px;
