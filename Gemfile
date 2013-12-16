@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem "linkedin"
 gem 'geocoder'
 gem  "octokit"
+gem 'dotenv-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -23,7 +24,7 @@ end
 
 
 group :development do
-  gem 'dotenv-rails'
+  
   gem "pry"
   gem "guard"
   gem "guard-rails"
