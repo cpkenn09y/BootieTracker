@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  require "pry"
   def sign_in
    redirect to ('/auth/dbc')
   end
