@@ -44,6 +44,7 @@ function grabBootsDataForMap() {
     setPointsOntoMapAndAttachListeners(bootsDataForMap)
   })
 }
+    var markers = []; 
 
 function setPointsOntoMapAndAttachListeners(bootsDataForMap) {
   for(var i = 0, num = bootsDataForMap.length; i < num; i++) {
@@ -57,7 +58,11 @@ function setPointsOntoMapAndAttachListeners(bootsDataForMap) {
       title: name,
       icon: icons[bootsDataForMap[i].user.cohort_name.location].icon
     })
-    marker.setMap(map);
+    var mcOptions = {gridSize: 40, maxZoom: 15, minimumClusterSize:5};
+    markers.push(marker)
+    // console.log(markers)
+    var mc = new MarkerClusterer(map, markers, mcOptions);
+    // marker.setMap(map);
     attachListenerOntoMarker(bootsDataForMap[i], marker)
   }
   attachListersOntoRadioButtons()
