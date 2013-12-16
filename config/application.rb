@@ -12,7 +12,7 @@ end
 module BootyTracker
   class Application < Rails::Application
     # if Rails.env.development?
-
+    config.assets.initialize_on_precompile = false
         Dotenv.load
     # end
     # Settings in config/environments/* take precedence over those specified here.
