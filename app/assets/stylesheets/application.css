@@ -24,7 +24,8 @@
   display:block;
 }
 #map-canvas {
-  margin-top: -100px  !important;
+  position:fixed;
+  /*margin-top: -100px  !important;*/
   /*z-index: -1;*/
   /*height:100%;*/
   width:100%;
