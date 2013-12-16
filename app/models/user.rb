@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   belongs_to :cohort
   has_many :authentications
 
-  geocoded_by :git_location
+  geocoded_by :current_location
   before_save :geocode
   # , :if => :key => "value", current_location_changed?
 
