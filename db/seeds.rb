@@ -5,8 +5,8 @@ require "URI"
 start = Time.now
 require "linkedin"
 
-# linkedin_client = LinkedIn::Client.new(ENV["CONSUMER_KEY"], ENV["CONSUMER_SECRET"])
-# linkedin_client.authorize_from_access(ENV["ACCESS_KEY"], ENV["ACCESS_TOKEN"])
+linkedin_client = LinkedIn::Client.new(ENV["CONSUMER_KEY"], ENV["CONSUMER_SECRET"])
+linkedin_client.authorize_from_access(ENV["ACCESS_KEY"], ENV["ACCESS_TOKEN"])
 
 git_client = Octokit::Client.new :login => 'stephenitis', :password => 'codemore123'
 
@@ -41,20 +41,20 @@ DBC::User.all.each do |user|
       p e
     end
   end
-# if user.profile[:linked_in]
-#   sleep 1
-#     begin
-#       linkedin_data = linkedin_client.profile(:url => user.profile[:linked_in], :fields => [ "location:(name)", "headline"] )
+if user.profile[:linked_in]
+  sleep 1
+    begin
+      linkedin_data = linkedin_client.profile(:url => user.profile[:linked_in], :fields => [ "location:(name)", "headline"] )
 
-#       p "linkedin : #{linkedin_data[:location].name}"
-#       u.update_attributes(:headline => linkedin_data[:headline] , :linkedin_location => linkedin_data[:location].name)
-#     rescue => e
-#       p e
-#       u.update_attributes(:headline => nil, :linkedin_location => nil)
-#     end
+      p "linkedin : #{linkedin_data[:location].name}"
+      u.update_attributes(:headline => linkedin_data[:headline] , :linkedin_location => linkedin_data[:location].name)
+    rescue => e
+      p e
+      u.update_attributes(:headline => nil, :linkedin_location => nil)
+    end
+
+end
 u.save
-# end
-
 end
 
 
