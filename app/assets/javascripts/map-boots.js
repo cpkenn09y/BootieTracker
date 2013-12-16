@@ -83,20 +83,20 @@ function createInfoWindowUponHover(bootData, marker) {
     '<a href=mailto:'+bootData.user.email+'>' + bootData.user.email+'</a>'+
     '<p>' +bootData.user.cohort_name.cohort_name+'</p>'
     if (bootData.user.linked_in){
-      contentString = contentString + '<a href='+bootData.user.linked_in+'target="_blank"><i class="fa-3x fa fa-linkedin-square"></i>&nbsp</a>'
+      contentString = contentString + '<a target="_blank" href='+bootData.user.linked_in+'><i class="fa-3x fa fa-linkedin-square"></i>&nbsp</a>'
     }
     if (bootData.user.facebook){
-      contentString = contentString + '<a href='+bootData.user.facebook+'target="_blank"><i class="fa-3x fa fa-facebook-square"></i>&nbsp</a>'
+      contentString = contentString + '<a target="_blank" href='+bootData.user.facebook+'><i class="fa-3x fa fa-facebook-square"></i>&nbsp</a>'
     }
     if (bootData.user.github){
-      contentString = contentString + '<a href='+bootData.user.github+'target="_blank"><i class="fa-3x fa fa-github-square"></i>&nbsp</a>'
+      contentString = contentString + '<a target="_blank" href='+bootData.user.github+'><i class="fa-3x fa fa-github-square"></i>&nbsp</a>'
     }
     if (bootData.user.twitter){
-      contentString = contentString + '<a href='+bootData.user.twitter+'target="_blank"><i class="fa-3x fa fa-twitter-square"></i>&nbsp</a>'
+      contentString = contentString + '<a target="_blank" href='+bootData.user.twitter+'><i class="fa-3x fa fa-twitter-square"></i>&nbsp</a>'
 
     }
     if(bootData.user.blog){
-    contentString = contentString +  '<a href='+bootData.user.blog+'target="_blank"><i class="fa-3x fa fa-tumblr-square"></i>&nbsp</a>'
+    contentString = contentString +  '<a target="_blank" href='+bootData.user.blog+'><i class="fa-3x fa fa-tumblr-square"></i>&nbsp</a>'
     }
     contentString = contentString +  '</div>';
 
