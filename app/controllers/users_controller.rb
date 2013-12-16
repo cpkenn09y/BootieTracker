@@ -14,6 +14,6 @@ class UsersController < ApplicationController
     @message = "SOMETHING WENT WRONG"
   end
     p @message
-   # render(:edit)
+   render(:edit)
   end
 end
