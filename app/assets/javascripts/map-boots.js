@@ -1,7 +1,8 @@
-var map;
+var gm = google.maps
+var markers = [];
 
 var icons = {
-    "San Francisco": {
+  "San Francisco": {
     icon: 'https://s3-us-west-2.amazonaws.com/booty-map/sf.png'
   },
   "Chicago": {
@@ -14,7 +15,11 @@ function createMap() {
     zoom: 6,
     disableDefaultUI: true
   };
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  map = new gm.Map(document.getElementById('map-canvas'), mapOptions);
+}
+
+function instantiateOMS() {
+  oms = new OverlappingMarkerSpiderfier(map)
 }
 
 function centersMapOnYourLocation() {
@@ -44,7 +49,6 @@ function grabBootsDataForMap() {
     setPointsOntoMapAndAttachListeners(bootsDataForMap)
   })
 }
-    var markers = []; 
 
 function setPointsOntoMapAndAttachListeners(bootsDataForMap) {
   for(var i = 0, num = bootsDataForMap.length; i < num; i++) {
@@ -60,17 +64,20 @@ function setPointsOntoMapAndAttachListeners(bootsDataForMap) {
     })
     var mcOptions = {gridSize: 20, maxZoom: 15, minimumClusterSize:5};
     markers.push(marker)
-    // console.log(markers)
     var mc = new MarkerClusterer(map, markers, mcOptions);
-    // marker.setMap(map);
     attachListenerOntoMarker(bootsDataForMap[i], marker)
+
+    addMarkerIntoOms(marker)
   }
-  attachListersOntoRadioButtons()
+}
+
+function addMarkerIntoOms(marker) {
+  oms.addMarker(marker)
 }
 
 function attachListenerOntoMarker(bootData, marker) {
   google.maps.event.addListener(marker, "click", function(event) {
-    createInfoWindowUponHover(bootData, marker)
+    createInfoWindowUponClick(bootData, marker)
   })
 }
 
@@ -79,7 +86,7 @@ function attachListersOntoRadioButtons() {
   })
 }
 
-function createInfoWindowUponHover(bootData, marker) {
+function createInfoWindowUponClick(bootData, marker) {
   var contentString = '<div class="content-box">'+
     '<img src='+bootData.user.image_url+'>'+
     '<p>'+bootData.user.name+' | <strong>'+bootData.user.current_location+'</strong></p>'+
@@ -103,11 +110,9 @@ function createInfoWindowUponHover(bootData, marker) {
     }
     contentString = contentString +  '</div>';
 
-  var infowindow = new google.maps.InfoWindow({
-    content: contentString
-  });
-
-  infowindow.open(map,marker);
+  var infoWindow = new gm.InfoWindow()
+  infoWindow.setContent(contentString)
+  infoWindow.open(map,marker);
 }
 
 function handleNoGeolocation(errorFlag) {
@@ -127,10 +132,9 @@ function handleNoGeolocation(errorFlag) {
 
 function initialize() {
   createMap()
+  instantiateOMS()
   centersMapOnYourLocation()
   grabBootsDataForMap()
 }
 
 $(document).ready(initialize)
-
-  // google.maps.event.addDomListener(window, 'load', initialize);

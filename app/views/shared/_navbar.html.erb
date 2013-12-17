@@ -16,12 +16,13 @@
 
       <li><a href="/about">About</a></li>
 
-      <li class="active"><a href="/auth/dbc">Login</a></li>
-      <li><a href="/auth/logout">LogOut</a></li>
+      <li class="active"><a href="http://bootietracker.herokuapp.com/auth">Login</a></li>
+
       <% if @user %>
-      <div class="profile_image"><a href=<%= "/users/#{@user.id}/edit" %>>
-      <%= gravatar_image_tag(@user.email, :alt => @user.name, :id => "profile_image", :style => "width:50px;height:50px; border-radius:100%;")  %></a><br/><div>
-      <!-- <h6>Hi <%=@user.name %> miss butt rubbing already?</h6> -->
+        <li><a href="/auth/logout">LogOut</a></li>
+        <div class="profile_image"><a href=<%= "/users/#{@user.id}/edit" %>>
+        <%= gravatar_image_tag(@user.email, :alt => @user.name, :id => "profile_image", :style => "width:50px;height:50px; border-radius:100%;")  %></a><br/><div>
+        <!-- <h6>Hi <%=@user.name %> miss butt rubbing already?</h6> -->
       <% end %>
 
 
