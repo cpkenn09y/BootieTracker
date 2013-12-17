@@ -1,7 +1,7 @@
-var map;
+var markers = [];
 
 var icons = {
-    "San Francisco": {
+  "San Francisco": {
     icon: 'https://s3-us-west-2.amazonaws.com/booty-map/sf.png'
   },
   "Chicago": {
@@ -44,7 +44,6 @@ function grabBootsDataForMap() {
     setPointsOntoMapAndAttachListeners(bootsDataForMap)
   })
 }
-    var markers = []; 
 
 function setPointsOntoMapAndAttachListeners(bootsDataForMap) {
   for(var i = 0, num = bootsDataForMap.length; i < num; i++) {
@@ -60,12 +59,9 @@ function setPointsOntoMapAndAttachListeners(bootsDataForMap) {
     })
     var mcOptions = {gridSize: 20, maxZoom: 15, minimumClusterSize:5};
     markers.push(marker)
-    // console.log(markers)
     var mc = new MarkerClusterer(map, markers, mcOptions);
-    // marker.setMap(map);
     attachListenerOntoMarker(bootsDataForMap[i], marker)
   }
-  attachListersOntoRadioButtons()
 }
 
 function attachListenerOntoMarker(bootData, marker) {
@@ -132,5 +128,3 @@ function initialize() {
 }
 
 $(document).ready(initialize)
-
-  // google.maps.event.addDomListener(window, 'load', initialize);
