@@ -23,12 +23,14 @@ A mapping of DBC alumni to enable DBC students and alumni to easily see who is w
 
 ## Team Members
 
-- Kenneth Yu
+- Kenneth Yu [cpkenn09y](https://www.github.com/cpkenn09y) | [email](email:kenyu@ucdavis.edu)
 - Stephen Nguyen [stephenitis](https://www.github.com/@stephenitis) | [email](email:nguyenhstephen@gmail.com)
-- Elaine Yu
-- Stephen Nugent
+- Elaine Yu [ElaineYu](https://github.com/ElaineYu) | [email](elaine.lee.yu)
+- Stephen Nugent [Steveo1485](https://github.com/Steveo1485) | [email](stevennugent@gmail.com)
 
-currently actively maintained by
-Stephen Nguyen [stephenitis](https://www.github.com/@stephenitis) | [email](email:nguyenhstephen@gmail.com)
+Actively maintained by:
 
-if you want to join on the repo and share credit for helping build this app! send us a pull request and we'll give oyu permissions to contribute thereafter!
+* Stephen Nguyen [stephenitis](https://www.github.com/@stephenitis) | [email](email:nguyenhstephen@gmail.com)
+* Kenneth Yu [cpkenn09y](https://www.github.com/cpkenn09y) | [email](email:kenyu@ucdavis.edu)
+
+if you want to join on the repo and share credit for helping build this app! send us a pull request and we'll give you permissions to contribute thereafter!
