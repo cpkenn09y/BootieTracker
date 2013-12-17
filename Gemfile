@@ -24,7 +24,7 @@ end
 
 
 group :development do
-  
+  gem "debugger"
   gem "pry"
   gem "guard"
   gem "guard-rails"

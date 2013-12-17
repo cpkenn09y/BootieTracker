@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def sign_in
-   redirect to ('/auth/dbc')
+   redirect to ('http://bootietracker.herokuapp.com/auth')
   end
 
   def destroy

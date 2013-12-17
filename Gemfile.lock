@@ -49,8 +49,15 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    columnize (0.3.6)
     dbc-ruby (1.0.4)
       rest-client
+    debugger (1.6.2)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.2.3)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.2.3)
     dotenv (0.9.0)
     dotenv-rails (0.9.0)
       dotenv (= 0.9.0)
@@ -197,6 +204,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   dbc-ruby
+  debugger
   dotenv-rails
   geocoder
   gravatar-ultimate

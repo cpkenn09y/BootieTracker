@@ -13,6 +13,8 @@
   <link href='http://fonts.googleapis.com/css?family=Voces' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <script src="http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -20,13 +22,13 @@
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-  <script src="http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
 
 </head>
 <body>
   <%= render "shared/navbar" %>
 
 <%= yield %>
+
 
 </body>
 </html>
