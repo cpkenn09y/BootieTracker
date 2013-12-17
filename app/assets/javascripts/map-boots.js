@@ -66,7 +66,13 @@ function setPointsOntoMapAndAttachListeners(bootsDataForMap) {
     markers.push(marker)
     var mc = new MarkerClusterer(map, markers, mcOptions);
     attachListenerOntoMarker(bootsDataForMap[i], marker)
+
+    addMarkerIntoOms(marker)
   }
+}
+
+function addMarkerIntoOms(marker) {
+  oms.addMarker(marker)
 }
 
 function attachListenerOntoMarker(bootData, marker) {
@@ -81,7 +87,6 @@ function attachListersOntoRadioButtons() {
 }
 
 function createInfoWindowUponClick(bootData, marker) {
-
   var contentString = '<div class="content-box">'+
     '<img src='+bootData.user.image_url+'>'+
     '<p>'+bootData.user.name+' | <strong>'+bootData.user.current_location+'</strong></p>'+
