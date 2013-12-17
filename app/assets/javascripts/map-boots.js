@@ -89,7 +89,7 @@ function attachListersOntoRadioButtons() {
 function createInfoWindowUponClick(bootData, marker) {
   var contentString = '<div class="content-box">'+
     '<img src='+bootData.user.image_url+'>'+
-    '<p>'+bootData.user.name+' | <strong>'+bootData.user.linkedin_location+'</strong></p>'+
+    '<p>'+bootData.user.name+assessWhichLocationToRender(bootData)+'</p>'
     '<a href=mailto:'+bootData.user.email+'>' + bootData.user.email+'</a>'+
     '<p>' +bootData.user.cohort_name.cohort_name+'</p>'
     if (bootData.user.linked_in){
@@ -113,6 +113,16 @@ function createInfoWindowUponClick(bootData, marker) {
   var infoWindow = new gm.InfoWindow()
   infoWindow.setContent(contentString)
   infoWindow.open(map,marker);
+}
+
+function assessWhichLocationToRender(bootData) {
+  if (bootData.user.linkedin_location) {
+    return ' | <strong>'+bootData.user.linkedin_location+'</strong>'
+  } else if (bootData.user.git_location) {
+    return ' | <strong>'+bootData.user.git_location+'</strong>'
+  } else {
+    return ' | <strong>'+bootData.user.current_location+'</strong>'
+  }
 }
 
 function handleNoGeolocation(errorFlag) {

@@ -33,6 +33,7 @@ private
       headline: user.headline,
       current_location: user.current_location,
       git_location: user.git_location,
+      linkedin_location: user.linkedin_location,
       latitude: user.latitude,
       longitude: user.longitude,
     }}
