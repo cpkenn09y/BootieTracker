@@ -1,3 +1,4 @@
+var gm = google.maps
 var markers = [];
 
 var icons = {
@@ -14,7 +15,11 @@ function createMap() {
     zoom: 6,
     disableDefaultUI: true
   };
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  map = new gm.Map(document.getElementById('map-canvas'), mapOptions);
+}
+
+function instantiateOMS() {
+  oms = new OverlappingMarkerSpiderfier(map)
 }
 
 function centersMapOnYourLocation() {
@@ -66,7 +71,7 @@ function setPointsOntoMapAndAttachListeners(bootsDataForMap) {
 
 function attachListenerOntoMarker(bootData, marker) {
   google.maps.event.addListener(marker, "click", function(event) {
-    createInfoWindowUponHover(bootData, marker)
+    createInfoWindowUponClick(bootData, marker)
   })
 }
 
@@ -75,7 +80,7 @@ function attachListersOntoRadioButtons() {
   })
 }
 
-function createInfoWindowUponHover(bootData, marker) {
+function createInfoWindowUponClick(bootData, marker) {
   var contentString = '<div class="content-box">'+
     '<img src='+bootData.user.image_url+'>'+
     '<p>'+bootData.user.name+' | <strong>'+bootData.user.current_location+'</strong></p>'+
@@ -123,6 +128,7 @@ function handleNoGeolocation(errorFlag) {
 
 function initialize() {
   createMap()
+  instantiateOMS()
   centersMapOnYourLocation()
   grabBootsDataForMap()
 }
