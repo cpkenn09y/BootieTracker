@@ -81,6 +81,7 @@ function attachListersOntoRadioButtons() {
 }
 
 function createInfoWindowUponClick(bootData, marker) {
+
   var contentString = '<div class="content-box">'+
     '<img src='+bootData.user.image_url+'>'+
     '<p>'+bootData.user.name+' | <strong>'+bootData.user.current_location+'</strong></p>'+
@@ -104,11 +105,9 @@ function createInfoWindowUponClick(bootData, marker) {
     }
     contentString = contentString +  '</div>';
 
-  var infowindow = new google.maps.InfoWindow({
-    content: contentString
-  });
-
-  infowindow.open(map,marker);
+  var infoWindow = new gm.InfoWindow()
+  infoWindow.setContent(contentString)
+  infoWindow.open(map,marker);
 }
 
 function handleNoGeolocation(errorFlag) {
