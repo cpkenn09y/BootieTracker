@@ -89,7 +89,7 @@ function attachListersOntoRadioButtons() {
 function createInfoWindowUponClick(bootData, marker) {
   var contentString = '<div class="content-box">'+
     '<img src='+bootData.user.image_url+'>'+
-    '<p>'+bootData.user.name+' | <strong>'+bootData.user.current_location+'</strong></p>'+
+    '<p>'+bootData.user.name+' | <strong>'+bootData.user.linkedin_location+'</strong></p>'+
     '<a href=mailto:'+bootData.user.email+'>' + bootData.user.email+'</a>'+
     '<p>' +bootData.user.cohort_name.cohort_name+'</p>'
     if (bootData.user.linked_in){
