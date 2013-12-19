@@ -138,3 +138,8 @@ html, body, #map-canvas {
 .profile_image {
   float:right;
 }
+
+.nav>li>a:hover, .nav>li>a:focus {
+  color: #2a6496;
+  background-color: transparent;
+}
