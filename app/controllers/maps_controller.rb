@@ -17,8 +17,8 @@ class MapsController < ApplicationController
 
 private
   def create_user_data_json(users)
-    if users
-      users.each do |user|
+    users.each do |user|
+      if user.email
         gravatar_url = Gravatar.new(user.email).image_url
         @user_data << { :user => {
         name: user.name,
@@ -37,7 +37,7 @@ private
         linkedin_location: user.linkedin_location,
         latitude: user.latitude,
         longitude: user.longitude,
-      }}
-    end
+      end
+    }}
   end
 end
