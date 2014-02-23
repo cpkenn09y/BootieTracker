@@ -1,12 +1,12 @@
 #legend {
-    background: rgba(255,255,255, 0.5);
-    padding: 10px;
-    border-width: 10px;
-    border-style:solid;
-    border-radius: 10px;
-  }
+  background: rgba(255,255,255, 0.5);
+  padding: 10px;
+  border-width: 10px;
+  border-style:solid;
+  border-radius: 10px;
+}
 
-  #legend_title {
-    text-align: center;
-  }
+#legend_title {
+  text-align: center;
+}
 
