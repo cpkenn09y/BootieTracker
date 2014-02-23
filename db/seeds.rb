@@ -8,7 +8,7 @@ require "linkedin"
 linkedin_client = LinkedIn::Client.new(ENV["CONSUMER_KEY"], ENV["CONSUMER_SECRET"])
 linkedin_client.authorize_from_access(ENV["ACCESS_KEY"], ENV["ACCESS_TOKEN"])
 
-git_client = Octokit::Client.new :login => ENV["GIT_USER"], :password => ENV['PASSWORD']
+# git_client = Octokit::Client.new :login => ENV["GIT_USER"], :password => ENV['PASSWORD']
 
 p "seeding user data"
 DBC::User.all.each do |user|
@@ -60,9 +60,12 @@ end
 
 p "seeding cohort data"
 DBC::Cohort.all.each do |cohort|
-  c = Cohort.create(c_id: cohort.id, cohort_name: cohort.name,  location: cohort.location)
-  p cohort.name
-  p c
+  if cohort.name.match(/(Melt|On\sHold)/)
+    p "not adding cohort #{cohort.name}"
+  else
+    c = Cohort.create(c_id: cohort.id, cohort_name: cohort.name,  location: cohort.location)
+    p "adding cohort #{cohort.name}"
+  end
 end
 p "done"
 
