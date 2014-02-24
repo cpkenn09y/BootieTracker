@@ -23,15 +23,14 @@ class User < ActiveRecord::Base
   end
 
   def choose_geo_code_strategy
-    if self.current_location
-      binding.pry
+    if self.current_location and self.linkedin_location.nil?
       User.geocoded_by :current_location
-      geocode
-    end
-    if self.linkedin_location
-      binding.pry
+      p geocode
+    elsif self.linkedin_location
       User.geocoded_by :linkedin_location
       geocode
+    else
+      p "no location"
     end
   end
 

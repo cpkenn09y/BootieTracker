@@ -14,7 +14,7 @@ p "seeding user data"
 DBC::User.all.each do |user|
   if user.profile[:linked_in] && user.profile[:linked_in] != ""
     user.profile[:linked_in] = user.profile[:linked_in].slice(URI.regexp).gsub(/\/$/, "")
-    p user.profile[:linked_in]
+    p user.profile[:current_location]
   else
     user.profile[:linked_in] = nil
   end
@@ -30,6 +30,7 @@ DBC::User.all.each do |user|
     :blog => user.profile[:blog],
     :current_location => user.profile[:current_location]
     )
+end
   # if u.github_url
   #   begin
   #     gitname = u.github_url.slice(/[^\/]+$/)
@@ -54,8 +55,8 @@ DBC::User.all.each do |user|
 #     end
 
 # end
-u.save
-end
+# u.save
+# end
 
 
 p "seeding cohort data"
@@ -65,7 +66,7 @@ DBC::Cohort.all.each do |cohort|
   else
     c = Cohort.create(c_id: cohort.id, cohort_name: cohort.name,  location: cohort.location)
     p "adding cohort #{cohort.name}"
-  end
+end
 end
 p "done"
 
@@ -75,4 +76,10 @@ p "done"
 end_time = Time.now
 total = end_time - start
 
+p "remove users with no cohort"
+
+# User.join(:cohort).where("users.cohort_id" 
 p " this seed took #{total}"
+
+
+

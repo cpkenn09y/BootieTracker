@@ -4,26 +4,26 @@ class MapsController < ApplicationController
     if session[:user_id]
       @user= User.find(session[:user_id])
     end
-    users = User.all
-    @user_data = []
-    create_user_data_json(users)
+    users = User.joins(:cohort).where("latitude IS NOT NULL")
+    @user_data = create_user_data_json(users)
 
     respond_to do |format|
       format.html
       format.json { render :json => @user_data}
       end
     end
-  end
+
 
 private
   def create_user_data_json(users)
-    users.each do |user|
+    users.map do |user|
       gravatar_url = Gravatar.new(user.email).image_url
-      @user_data << { :user => {
+      { :user => {
       name: user.name,
       image_url: gravatar_url,
       email: user.email,
       cohort_name: user.cohort,
+      cohort_location: user.cohort.location,
       linked_in: user.linkedin_url,
       facebook: user.facebook_url,
       twitter: user.twitter_url,
@@ -37,6 +37,6 @@ private
       latitude: user.latitude,
       longitude: user.longitude,
     }}
+    end
   end
-
 end

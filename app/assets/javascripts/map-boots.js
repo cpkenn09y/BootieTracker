@@ -7,6 +7,9 @@ var icons = {
   },
   "Chicago": {
     icon: 'https://s3-us-west-2.amazonaws.com/booty-map/chicago.png'
+  },
+  "New York City": {
+    icon: 'https://s3-us-west-2.amazonaws.com/booty-map/chicago.png'
   }
 };
 
@@ -60,7 +63,7 @@ function setPointsOntoMapAndAttachListeners(bootsDataForMap) {
     var marker = new google.maps.Marker({
       position: user,
       title: name,
-      icon: icons[bootsDataForMap[i].user.cohort_name.location].icon
+      icon: icons[bootsDataForMap[i].user.cohort_location].icon
     })
     var mcOptions = {gridSize: 50, maxZoom: 15, minimumClusterSize:5};
     markers.push(marker)
