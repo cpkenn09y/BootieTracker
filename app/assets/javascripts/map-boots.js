@@ -9,7 +9,7 @@ var icons = {
     icon: 'https://s3-us-west-2.amazonaws.com/booty-map/chicago.png'
   },
   "New York City": {
-    icon: 'https://s3-us-west-2.amazonaws.com/booty-map/chicago.png'
+    icon: 'https://s3-us-west-2.amazonaws.com/booty-map/new_york.png'
   }
 };
 
