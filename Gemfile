@@ -13,7 +13,7 @@ gem "dbc-ruby"
 gem 'jquery-rails'
 gem "linkedin"
 gem 'geocoder'
-gem  "octokit"
+gem 'octokit'
 gem 'dotenv-rails'
 
 group :assets do
