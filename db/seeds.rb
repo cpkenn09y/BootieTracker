@@ -1,6 +1,4 @@
-require "dbc-ruby"
 DBC::token = ENV["DBC_TOKEN"]
-require "URI"
 
 start = Time.now
 User.delete_all
