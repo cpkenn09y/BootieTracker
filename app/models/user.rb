@@ -4,9 +4,8 @@ class User < ActiveRecord::Base
   belongs_to :cohort
   has_many :authentications
 
-  geocoded_by :linkedin_location
-  before_save :geocode
-  # , :if => :key => "value", current_location_changed?
+  # geocoded_by :linkedin_location
+  before_save :choose_geo_code_strategy
 
   def self.find_or_create_from_auth_hash(auth_hash)
     info = auth_hash['info']
@@ -21,6 +20,19 @@ class User < ActiveRecord::Base
 
   def self.from_chicago
     joins(:cohort).merge(Cohort.where(:location => "Chicago"))
+  end
+
+  def choose_geo_code_strategy
+    if self.current_location
+      binding.pry
+      User.geocoded_by :current_location
+      geocode
+    end
+    if self.linkedin_location
+      binding.pry
+      User.geocoded_by :linkedin_location
+      geocode
+    end
   end
 
 end
