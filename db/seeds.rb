@@ -4,6 +4,7 @@ require "URI"
 
 start = Time.now
 User.delete_all
+Cohort.delete_all
 # require "linkedin"
 # @linkedin_client = LinkedIn::Client.new(ENV["CONSUMER_KEY"], ENV["CONSUMER_SECRET"])
 # THIS DONT WORK BECAUSE OAUTH TOKEN WILL EXPIRE AND CURRENTLY IS EXPIRED
